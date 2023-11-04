@@ -72,7 +72,7 @@ function Appbar() {
             zIndex: 1
         }}>
             <div style={{marginLeft: 10}}>
-                <Typography variant={"h6"}>Coursera</Typography>
+                <Typography variant={"h6"}>Art_Gallery</Typography>
             </div>
     
             <div style={{display: "flex"}}>
