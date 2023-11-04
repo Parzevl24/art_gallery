@@ -19,5 +19,6 @@ const authenticateJwt = (req, res, next) => {
 
 module.exports = {
     authenticateJwt,
-    SECRET
+    SECRET,
+    jwt
 }
