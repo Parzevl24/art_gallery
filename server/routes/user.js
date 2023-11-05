@@ -16,15 +16,21 @@ const router = express.Router();
     }
   });
   
-  router.post('/login', async (req, res) => {
-    const { username, password } = req.headers;
+  router.post('/signin', async (req, res) => {
+    const { username, password } = req.body;
     const user = await User.findOne({ username, password });
+    console.log("inside login")
+    console.log(user)
     if (user) {
+      console.log("inside user");
       const token = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '1h' });
       res.json({ message: 'Logged in successfully', token });
     } else {
       res.status(403).json({ message: 'Invalid username or password' });
     }
   });
+  
+
+  
   
   module.exports = router;
