@@ -5,8 +5,16 @@ const userSchema = new mongoose.Schema({
     password: String,
   });
 
+const artSchema = new mongoose.Schema({
+  name : String,
+  imgLink: String,
+  artistName: String,
+  description: String
+})
+
 const User = mongoose.model('User', userSchema);
-  
+const Art = mongoose.model('Art', artSchema);
   module.exports = {
     User,
+    Art
   }

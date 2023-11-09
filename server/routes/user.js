@@ -1,7 +1,18 @@
 const express = require('express');
 const { authenticateJwt, SECRET, jwt } = require("../middleware/auth");
-const { User} = require("../db");
+const { User, Art } = require("../db");
 const router = express.Router();
+
+  router.get('/me', authenticateJwt, async (req, res)=>{
+    const user = await User.findOne({username: req.user.username});
+    if(!user){
+      res.status(404).json({message: 'User not found'});
+      return
+    }
+    res.json({
+      username: user.username
+    })
+  })
 
   router.post('/signup', async (req, res) => {
     const { username, password } = req.body;
@@ -30,7 +41,15 @@ const router = express.Router();
     }
   });
   
+  router.post('/art', authenticateJwt, async(req,res) => {
+      const art = new Art(req.body);
+      await art.save();
+      res.status(200).json({message: 'Art uploaded successfully'})
+  })
 
-  
+  router.get('/art', authenticateJwt, async(req, res) => {
+    const art = await Art.find({});
+    res.json(art);
+  })
   
   module.exports = router;

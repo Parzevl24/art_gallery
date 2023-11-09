@@ -2,28 +2,28 @@ import {Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 function Appbar() {
     const navigate = useNavigate()
     const [userEmail, setUserEmail] = useState(null);
 
     useEffect(() => {
-        function callback2(data) {
-            if (data.username) {
-                setUserEmail(data.username)
+        const fetchdata = async() =>{
+            try{
+                const response = await axios.get("http://localhost:3000/user/me",{
+                    headers:{
+                        "Authorization" : "Bearer " + localStorage.getItem("token")
+                    }
+                });
+                setUserEmail(response.data);
             }
-        }
-        function callback1(res) {
-            res.json().then(callback2)
-        }
-        console.log("token - " + localStorage.getItem("token"));
-        fetch("http://localhost:3000/admin/me", {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("token")
+            catch(err){
+                console.log("unable to fetch data", err);
             }
-        }).then(callback1)
-    }, []);
+        };
+        fetchdata();
+    },[])
 
     if (userEmail) {
         return <div style={{
@@ -41,17 +41,17 @@ function Appbar() {
                 <div style={{marginRight: 10}}>
                         <Button
                             onClick={() => {
-                                navigate("/addcourse")
+                                navigate("/arts")
                             }}
-                        >Add course</Button>
+                        >Gallery</Button>
                     </div>
 
                     <div style={{marginRight: 10}}>
                         <Button
                             onClick={() => {
-                                navigate("/courses")
+                                navigate("/myarts")
                             }}
-                        >Courses</Button>
+                        >Arts</Button>
                     </div>
 
                     <Button
