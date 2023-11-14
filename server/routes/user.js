@@ -41,6 +41,16 @@ const router = express.Router();
     }
   });
   
+  router.post('/myart',authenticateJwt, async(req,res) => {
+    const {username} = req.body;
+    const user = await Art.find({username});
+    if(user){
+      res.json({user});
+    }else{
+
+      res.json({message: 'no art found'})
+    }
+  })
   router.post('/art', authenticateJwt, async(req,res) => {
       const art = new Art(req.body);
       await art.save();

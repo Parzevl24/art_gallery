@@ -15,7 +15,6 @@ function Arts(){
                 });
                 console.log(response.data);
                 setArts(response.data);
-
             }
             catch(error){
                 console.log("error in fetching", error);

@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   });
 
 const artSchema = new mongoose.Schema({
+  username: String,
   name : String,
   imgLink: String,
   artistName: String,

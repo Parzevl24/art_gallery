@@ -16,6 +16,7 @@ function Signin() {
             });
             const data = response.data;
             localStorage.setItem("token", data.token);
+            localStorage.setItem("username", username);
             window.location = "/data";
         }catch (error){
             setError("try again")
