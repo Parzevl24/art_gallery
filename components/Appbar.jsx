@@ -43,7 +43,7 @@ function Appbar() {
                             onClick={() => {
                                 navigate("/arts")
                             }}
-                        >Gallery</Button>
+                        >Home</Button>
                     </div>
 
                     <div style={{marginRight: 10}}>
@@ -51,7 +51,15 @@ function Appbar() {
                             onClick={() => {
                                 navigate("/myarts")
                             }}
-                        >Arts</Button>
+                        >Add Art</Button>
+                    </div>
+
+                    <div style={{marginRight: 10}}>
+                        <Button
+                            onClick={() => {
+                                navigate("/myart")
+                            }}
+                        >My Art</Button>
                     </div>
 
                     <Button

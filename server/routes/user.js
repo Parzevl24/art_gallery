@@ -41,16 +41,43 @@ const router = express.Router();
     }
   });
   
-  router.post('/myart',authenticateJwt, async(req,res) => {
-    const {username} = req.body;
+  router.get('/myart',authenticateJwt, async(req,res) => {
+    const {username} = req.headers;
     const user = await Art.find({username});
     if(user){
-      res.json({user});
+      res.status(200).json(user);
     }else{
-
-      res.json({message: 'no art found'})
+      res.status(401).json({message: 'no art found'})
     }
   })
+
+  router.delete('/myart/:id', authenticateJwt, async(req, res) =>{
+    const myart = await Art.findByIdAndDelete(req.params.id);
+    if(myart){
+      res.status(200).json({message:"deleted successfully"});
+    }else{
+      res.status(401).json({message: "no art found"});
+    }
+  })
+
+  router.put('/myart/:id', authenticateJwt, async(req, res) =>{
+    const myart = await Art.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    if(myart){
+      res.status(200).json({message:"Art updated successfuly"});
+    }else{
+      res.status(401).json({message:"no art found"});
+    }
+  })
+
+router.get("/myart/:id",authenticateJwt, async(req, res)=>{
+  const myartId = req.params.id;
+  console.log(myartId);
+  const myart = await Art.findById(myartId);
+  if(myart){
+    res.json({myart});
+  }
+})
+
   router.post('/art', authenticateJwt, async(req,res) => {
       const art = new Art(req.body);
       await art.save();
