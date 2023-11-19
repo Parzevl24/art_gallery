@@ -22,7 +22,7 @@ function MyArt(){
                 }
             });
             const data = response.data;
-            Alert("upload success")
+            alert("upload success");
         }
         catch(error){
             setError("Unable to upload");

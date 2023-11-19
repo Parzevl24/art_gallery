@@ -71,7 +71,6 @@ const router = express.Router();
 
 router.get("/myart/:id",authenticateJwt, async(req, res)=>{
   const myartId = req.params.id;
-  console.log(myartId);
   const myart = await Art.findById(myartId);
   if(myart){
     res.json({myart});

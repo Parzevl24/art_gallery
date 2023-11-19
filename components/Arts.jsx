@@ -1,53 +1,56 @@
 import { Button, Card, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./arts.css"
 // import { useNavigate } from "react-router-dom";
 
-function Arts(){
-    const [arts, setArts] = useState([]);
-    useEffect(()=>{
-        const fetchdata = async() => {
-            try{
-                const response = await axios.get("http://localhost:3000/user/art",{
-                    headers:{
-                        "Authorization" : "Bearer " + localStorage.getItem("token"),
-                    }
-                });
-                console.log(response.data);
-                setArts(response.data);
-            }
-            catch(error){
-                console.log("error in fetching", error);
-            }
-        };
-        fetchdata();
-    },[])
+function Arts() {
+  const [arts, setArts] = useState([]);
 
-    return <div>
-        <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-            {arts.map((art) => {
-                return <Art key={art.id} art = {art} />
-            })}
-        </div>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/user/art", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        console.log(response.data);
+        setArts(response.data);
+      } catch (error) {
+        console.log("error in fetching", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div className="arts-container">
+      <div className="arts-gallery">
+        {arts.map((art) => {
+          return <Art key={art._id} art={art} />;
+        })}
+      </div>
     </div>
+  );
 }
 
-export function Art({art}){
-    // const navigate = useNavigate();
+export function Art({ art }) {
+  // const navigate = useNavigate();
 
-    return <Card style={{
-        margin:10,
-        width: 300,
-        minHeight: 200,
-        padding: 20
-    }}>
-        <Typography>{art.name}</Typography>
-        <Typography>{art.artName}</Typography>
-        <img  style={{height:300, width:300}} src={art.imgLink} alt="img" />
-        <Typography>{art.description}</Typography>
-        {/* <Button variant="contained" size="large">EDIT</Button> */}
+  return (
+    <Card className="art-card">
+      <Typography variant="h5">{art.name}</Typography>
+      <Typography variant="subtitle1" className="art-subtitle">
+        {art.artName}
+      </Typography>
+      <img className="art-image" src={art.imgLink} alt="img" />
+      <Typography variant="body2" className="art-description">
+        {art.description}
+      </Typography>
+      {/* <Button variant="contained" size="large">EDIT</Button> */}
     </Card>
-
+  );
 }
 
 export default Arts;

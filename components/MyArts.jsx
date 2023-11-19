@@ -75,10 +75,10 @@ export function Art({art, onDelete}){
               DELETE
             </Button>
           </div>
-          <div>
+          <div className="update-button-container">
           <Button
-              className="delete-button"
-              style={{ padding: "10px", backgroundColor: "red" }}
+              className="update-button"
+              style={{ padding: "10px" }}
               variant="contained"
               onClick={()=> {
                 navigate(`/updateart/${art._id}`);
