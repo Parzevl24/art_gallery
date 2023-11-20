@@ -10,7 +10,7 @@ function MyArt(){
     const handleMyArt = async()=> {
         try{
             const username = localStorage.getItem("username");
-            const response = await axios.post('http://localhost:3000/user/art',{
+            const response = await axios.post('https://art-gallery-w1x0.onrender.com/user/art',{
                 username: username,
                 name: name,
                 imgLink: imgLink,

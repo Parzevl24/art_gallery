@@ -9,7 +9,7 @@ function MyArts() {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/user/myart", {
+        const response = await axios.get("https://art-gallery-w1x0.onrender.com/user/myart", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
             username: localStorage.getItem("username"),
@@ -27,7 +27,7 @@ function MyArts() {
   const handleDelete = async (deletedArtId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/user/myart/${deletedArtId}`,
+        `https://art-gallery-w1x0.onrender.com/user/myart/${deletedArtId}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),

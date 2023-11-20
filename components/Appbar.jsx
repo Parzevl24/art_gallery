@@ -11,7 +11,7 @@ function Appbar() {
     useEffect(() => {
         const fetchdata = async() =>{
             try{
-                const response = await axios.get("http://localhost:3000/user/me",{
+                const response = await axios.get("https://art-gallery-w1x0.onrender.com/user/me",{
                     headers:{
                         "Authorization" : "Bearer " + localStorage.getItem("token")
                     }

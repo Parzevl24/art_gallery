@@ -9,7 +9,7 @@ function UpdateArt(){
     console.log(id);
     const [myart, setMyArt] = useState(null);
     useEffect(() => {
-        axios.get("http://localhost:3000/user/myart/" + id, {
+        axios.get("https://art-gallery-w1x0.onrender.com/user/myart/" + id, {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
@@ -118,7 +118,7 @@ function UpdateCard({myart, setMyArt}) {
 <Button
                 variant="contained"
                 onClick={async () => {
-                    axios.put("http://localhost:3000/user/myart/" + myart._id, {
+                    axios.put("https://art-gallery-w1x0.onrender.com/user/myart/" + myart._id, {
                         username: username,
                         name: name,
                         imgLink: imgLink,

@@ -10,7 +10,7 @@ function Arts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/user/art", {
+        const response = await axios.get("https://art-gallery-w1x0.onrender.com/user/art", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
