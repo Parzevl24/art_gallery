@@ -17,10 +17,14 @@
   min-height: 400px;
   padding: 20px;
   text-align: center;
-  background-color: #f7f7f7; /* Use a light background color */
+  /* background-color: #f7f7f7; Use a light background color */
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
+}
+
+.art-card{
+  background-color: aqua;
 }
 
 .art-card:hover {

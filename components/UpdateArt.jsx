@@ -44,7 +44,7 @@ function UpdateArt(){
 }
 
 function GrayTopper({name}) {
-    return <div style={{height: 250, background: "#212121", top: 0, width: "100vw", zIndex: 0, marginBottom: -250}}>
+    return <div style={{height: 250, top: 0, width: "100vw", zIndex: 0, marginBottom: -250}}>
         <div style={{ height: 250, display: "flex", justifyContent: "center", flexDirection: "column"}}>
             <div>
                 <Typography style={{color: "white", fontWeight: 600}} variant="h3" textAlign={"center"}>
@@ -62,7 +62,7 @@ function UpdateCard({myart, setMyArt}) {
     const [description, setDescription] = useState(myart.description);
     const username = localStorage.getItem("username");
     return <div style={{display: "flex", justifyContent: "center"}}>
-    <Card varint={"outlined"} style={{maxWidth: 600, marginTop: 200}}>
+    <Card varint={"outlined"} style={{maxWidth: 600, marginTop: 200, }}>
         <div style={{padding: 20}}>
             <Typography style={{marginBottom: 10}}>Update Art details</Typography>
             <TextField

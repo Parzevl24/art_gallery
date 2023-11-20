@@ -39,12 +39,15 @@ export function Art({ art }) {
   // const navigate = useNavigate();
 
   return (
-    <Card className="art-card">
+    <Card className="art-card" style={{backgroundColor:"#CBB1B1"}} >
       <Typography variant="h5">{art.name}</Typography>
       <Typography variant="subtitle1" className="art-subtitle">
         {art.artName}
       </Typography>
       <img className="art-image" src={art.imgLink} alt="img" />
+      <Typography variant="body2" className="art-description">
+        <b>{art.artistName}</b>
+      </Typography>
       <Typography variant="body2" className="art-description">
         {art.description}
       </Typography>

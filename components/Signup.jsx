@@ -21,7 +21,7 @@ function Signup() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center",  }}>
       <Card variant="outlined" style={{ width: 200, padding: 20 }}>
         <TextField
           onChange={(e) => {

@@ -31,7 +31,7 @@ function MyArt(){
 
     return <div style={{display: "flex", justifyContent: "center"}}>
         <div >
-            <Card variant="{outlined}" style={{width: 400, padding:20}}>
+            <Card variant="{outlined}" style={{width: 400, padding:20, backgroundColor:"#CBB1B1"}}>
                 <TextField
                     value= {localStorage.getItem('username')}
                     fullWidth={true}

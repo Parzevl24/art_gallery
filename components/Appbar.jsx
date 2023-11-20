@@ -32,7 +32,7 @@ function Appbar() {
             padding: 4,
             zIndex: 1
         }}>
-            <div style={{marginLeft: 10}}>
+            <div style={{marginLeft: 10, color:"#FFF4EF"}}>
                 <Typography variant={"h6"}>Art</Typography>
             </div>
     
@@ -43,6 +43,7 @@ function Appbar() {
                             onClick={() => {
                                 navigate("/arts")
                             }}
+                        style={{color:"#FFF4EF"}}
                         >Home</Button>
                     </div>
 
@@ -51,6 +52,7 @@ function Appbar() {
                             onClick={() => {
                                 navigate("/myarts")
                             }}
+                            style={{color:"#FFF4EF"}}
                         >Add Art</Button>
                     </div>
 
@@ -59,6 +61,7 @@ function Appbar() {
                             onClick={() => {
                                 navigate("/myart")
                             }}
+                            style={{color:"#FFF4EF"}}
                         >My Art</Button>
                     </div>
 
@@ -80,7 +83,7 @@ function Appbar() {
             zIndex: 1
         }}>
             <div style={{marginLeft: 10}}>
-                <Typography variant={"h6"}>Art_Gallery</Typography>
+                <Typography variant={"h6"} style={{color:"#FFF4EF"}}>Art_Gallery</Typography>
             </div>
     
             <div style={{display: "flex"}}>

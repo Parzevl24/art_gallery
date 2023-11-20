@@ -30,12 +30,12 @@ function Signin() {
                 display: "flex",
                 justifyContent: "center"
             }}>
-                <Typography variant={"h6"}>
-                Welcome to Art gallery. Sign up below
+                <Typography variant={"h6"} style={{color:"#FFF4EF"}}>
+                Welcome to Art gallery. Sign in below
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>
-            <Card varint={"outlined"} style={{width: 400, padding: 20}}>
+            <Card varint={"outlined"} style={{width: 400, padding: 20,backgroundColor:"#CBB1B1"}}>
                 <TextField
                     onChange={(e)=>{
                         setUsername(e.target.value);
